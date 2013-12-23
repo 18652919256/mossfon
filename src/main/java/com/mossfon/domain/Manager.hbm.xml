@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.mossfon.domain">
+	<class name="Manager">
+	<cache usage="read-write"/>
+	<id name="promoter_id" column="manager_id"></id>
+	<set name="promoters" inverse="true">
+	<key column="promoter_id" not-null="true"/>
+	<one-to-many class="Promoter"/>
+	</set>
+	</class>
+	</hibernate-mapping>
