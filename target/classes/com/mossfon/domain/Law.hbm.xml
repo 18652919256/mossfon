@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.mossfon.domain">
+	<class name="Law">
+	<cache usage="read-write"/>
+	<id name="law_id" type="integer">
+	<generator class="identity"></generator>
+	</id>
+	<property name="law_name" type="string" length="100" not-null="true"/>
+	<property name="law_fee" type="double"  not-null="true"/>
+	<property name="law_requirements" type="text"  not-null="true"/>
+	<property name="law_begin" type="date"   not-null="true"/>
+	<property name="law_end" type="date" />
+	<property name="law_tips" type="text" />
+	<one-to-one name="client" class="Client" cascade="all"/>
+	<one-to-one name="incorp" class="Incorp" cascade="all"/>
+	
+	</class>
+	</hibernate-mapping>

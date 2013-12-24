@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mossfon.domain">
+	<class name="Detail">
+		<cache usage="read-write" />
+		<id name="client_id" column="detail_id"/>
+		<property name="client_gender" type="string" length="10"
+			not-null="true" />
+		<property name="client_birthday" type="date" not-null="true" />
+		<property name="client_currency" type="string" length="10"
+			not-null="true" />
+		<property name="client_from" type="string" length="50"
+			not-null="true" />
+		<property name="client_mobile" type="string" length="11"
+			not-null="true" />
+		<property name="client_telephone" type="string" length="20" />
+		<property name="client_fax" type="string" length="20" />
+		<property name="client_mail" type="string" length="50"
+			not-null="true" />
+		<property name="client_address" type="string" length="250"
+			not-null="true" />
+		<property name="client_company" type="string" length="100" />
+		<property name="client_website" type="string" length="200" />
+		<property name="client_industry" type="string" length="50"
+			not-null="true" />
+		<property name="client_3p" type="string" length="10"
+			not-null="true" />
+		<property name="client_db" type="string" length="10"
+			not-null="true" />
+	</class>
+</hibernate-mapping>

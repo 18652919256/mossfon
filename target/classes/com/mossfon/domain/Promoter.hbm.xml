@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mossfon.domain">
+	<class name="Promoter">
+		<cache usage="read-write" />
+		<id name="promoter_id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="promoter_cname" type="string" length="50"
+			not-null="true" />
+		<property name="promoter_name" type="string" length="50"
+			not-null="true" />
+		<property name="promoter_password" type="string" length="50"
+			not-null="true" />
+		<property name="promoter_gender" type="string" length="10"
+			not-null="true" />
+		<property name="promoter_skype" type="string" length="150" />
+		<property name="promoter_mail" type="string" length="200"
+			not-null="true" />
+		<property name="promoter_mobile" type="string" length="11"
+			not-null="true" />
+		<property name="promoter_telephone" type="string" length="20" />
+		<one-to-one name="manager" class="Manager" cascade="all" />
+		<set name="cliets" inverse="true">
+			<key column="promoter_id" not-null="true" />
+			<one-to-many class="Client" />
+		</set>
+		<set name="follows" inverse="true">
+			<key column="promoter_id" not-null="true" />
+			<one-to-many class="Follow" />
+		</set>
+	</class>
+</hibernate-mapping>

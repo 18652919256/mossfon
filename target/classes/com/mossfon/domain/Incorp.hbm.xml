@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mossfon.domain">
+	<class name="Incorp">
+		<cache usage="read-write" />
+		<id name="incorporaton_id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="incorporation_name" type="string" length="100"
+			not-null="true" />
+		<property name="incorporation_destination" type="string"
+			length="50" not-null="true" />
+		<property name="incorporation_registerdate" type="date"
+			not-null="true" />
+		<property name="incorporation_registerfee" type="double"
+			not-null="true" />
+		<property name="incorporation_annualfee" type="double"
+			not-null="true" />
+		<property name="incorporation_contacts" type="string" length="100"
+			not-null="true" />
+		<property name="incorporation_telephone" type="string"
+			length="20" />
+		<property name="incorporation_mobile" type="string" length="11"
+			not-null="true" />
+		<property name="incorporation_fax" type="string" length="100" />
+		<property name="incorporation_mail" type="string" length="200"
+			not-null="true" />
+		<property name="incorporation_address" type="string" length="250"
+			not-null="true" />
+		<array name="incorporation_shareholder" table="shareholder">
+			<key column="incorporaton_id" not-null="true" />
+			<list-index>
+				<column name="list_order" />
+			</list-index>
+			<element type="string">
+				<column name="shareholder_name"></column>
+			</element>
+		</array>
+		<array name="incorporation_director" table="director">
+			<key column="incorporaton_id" not-null="true" />
+			<list-index>
+				<column name="list_order" />
+			</list-index>
+			<element type="string">
+				<column name="director_name"></column>
+			</element>
+		</array>
+
+	</class>
+</hibernate-mapping>
